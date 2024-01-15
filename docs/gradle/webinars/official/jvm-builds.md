@@ -286,3 +286,48 @@ tasks.register("sourceSetsInfo") {
 !!! Note ""
 
     Note: Android SourceSets have slightly different API
+
+### Define Additional SourceSets
+
+We define addional sourceSets to manage code that is logically independent (e.g test types).
+- Since test frameworks may have different dependencies and classpaths, we define addtional sourceSets for them to executes different test types separately.
+
+Creating a sourceSet is easy as follows:
+
+```kotlin
+sourceSets.create("srcSetName")
+```
+
+And after this, if we run `sourceSetsInfo` tasks, then we will see this sourceSet in the list as well, and we can use it's sepecific dependency configuration to add a dependency to it.
+
+Now for example let's consider a extra sourceSet which has a main method, let's define a task similir to `run` to run this sourceSet:
+
+```java title="./src/extra/Extra.java"
+import org.joda.time.LocalTime;
+public class Extra {
+    public static void main(String[] args) {
+        System.out.println("Running Extra: " + LocalTime.now().toString());
+    }
+}
+```
+
+<div class="annotate" markdown>
+
+```kotlin title="build.gradle.kts"
+val extraSrcSet = sourceSets.create("extra")
+dependencies {
+    "extraImplementation"("joda-time:joda-time:2.11.1")  //(1)!
+}
+tasks.register<JavaExec>("runExtra") { //(2)!
+    classpath = extraSrcSet.output + extraSrcSet.runtimeClasspath //(3)!
+    mainClass.set("Extra")
+}
+```
+
+</div>
+
+1.  **extraImplementation** is the output of `extraSrcSet.implementationConfigurationName`
+2.  **JavaExec** is a predefined task type which requires classpath and mainclass to be set. For more task types check [here](https://docs.gradle.org/current/dsl/#N104D7).
+3.  For _classpath_ two values are concatenated: 
+    - sourceSet **output** so we have access to .class files inside extra package (as well as declare an inferred dependency on Compile task of this sourceSet, so before running this task, extra files are compiled first)
+    - **runtimeClasspath** because we need the declared dependencies to run the jar file. 
