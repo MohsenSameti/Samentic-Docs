@@ -1,0 +1,1226 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+    
+    
+      
+        <title>Jvm Builds - Samentic Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jvm-builds" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Samentic Docs" class="md-header__button md-logo" aria-label="Samentic Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Samentic Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Jvm Builds
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Samentic Docs" class="md-nav__button md-logo" aria-label="Samentic Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Samentic Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Samentic Docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Gradle
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Gradle
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tips-and-tricks/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Tips and Tricks
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tips and Tricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tips-and-tricks/build-variant-filtering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Filter Build Variants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tips-and-tricks/rename-output-files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rename Output Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Webinars
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Webinars
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Official
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Official
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Jvm Builds
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Jvm Builds
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#evolution-of-build-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evolution of Build Tools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradle-jvm-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradle JVM Plugins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gradle JVM Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java Plugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotlin-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      kotlin plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groovy-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      groovy plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scala-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      scala plugin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source Organization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Source Organization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-are-sourcesets-useful" class="md-nav__link">
+    <span class="md-ellipsis">
+      How are sourceSets useful?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How are sourceSets useful?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handling-generated-source-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling Generated Source Codes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-expensive-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Expensive Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soucesets-more-than-just-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      SouceSets: More than Just Sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-additional-sourcesets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define Additional SourceSets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#evolution-of-build-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evolution of Build Tools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradle-jvm-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradle JVM Plugins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gradle JVM Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java Plugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotlin-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      kotlin plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groovy-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      groovy plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scala-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      scala plugin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source Organization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Source Organization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-are-sourcesets-useful" class="md-nav__link">
+    <span class="md-ellipsis">
+      How are sourceSets useful?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How are sourceSets useful?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handling-generated-source-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling Generated Source Codes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-expensive-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Expensive Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soucesets-more-than-just-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      SouceSets: More than Just Sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-additional-sourcesets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define Additional SourceSets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="jvm-builds">Jvm Builds<a class="headerlink" href="#jvm-builds" title="Permanent link">#</a></h1>
+<h2 id="evolution-of-build-tools">Evolution of Build Tools<a class="headerlink" href="#evolution-of-build-tools" title="Permanent link">#</a></h2>
+<p>As with everything, build tools evolve over time. if we consider a car at the beginning, it only has Accelerate, Turn and Brake which are basic things a car needs. But overtime more things are are added to the cars like Seat Belts, Self Parking, etc.</p>
+<p><img alt="Evolution of Cars" src="../assets/car-revolution.png" /></p>
+<p>As you can see in the following image, at the beginning build tools only consisted of basic features which are a way to compile the app, run application tests and package the app.</p>
+<figure>
+<p><img alt="Build Tool Evolution Basic" src="../assets/build-tool-evolution-basic.png" width="300" /></p>
+</figure>
+<p>and as time passed more features were added to build systems Dependency Management, Static code analysis and Test Grouping.</p>
+<p><img alt="Build Tool Evolution Over time" src="../assets/build-tool-evolution-over_time.png" /></p>
+<p>They are evolving continuously to Help us create code better and they do a lot of heavy lifting behind the scenes like dependency management.</p>
+<h2 id="gradle-jvm-plugins">Gradle JVM Plugins<a class="headerlink" href="#gradle-jvm-plugins" title="Permanent link">#</a></h2>
+<p>As you (should) know gradle by itself provide minimal configuration and most thing are added to it by applying plugins. The same goes for java and other jvm languages kotlin, groovy and scala.</p>
+<p>In this section we check common used plugins in jvm builds for java, kotlin, groovy and scala languages.</p>
+<h3 id="java-plugins"><strong>Java</strong> Plugins<a class="headerlink" href="#java-plugins" title="Permanent link">#</a></h3>
+<p>For <strong>java</strong> there are 3 main plugins when it comes to java: <code>java</code> plugin, <code>java-library</code> plugin and <code>application</code> plugin</p>
+<ul>
+<li>
+<p><strong><code>java</code></strong> plugin</p>
+<p>This plugin is the base java plugin which provides <strong>source code locations</strong> for java which are called SourceSets.</p>
+<ul>
+<li><code>src/main/java</code></li>
+<li><code>src/test/java</code></li>
+</ul>
+<p>adds tasks like <strong>compileJava</strong> and <strong>test</strong> for compiling the source codes and running tests respectively  </p>
+</li>
+<li>
+<p><strong><code>java-library</code></strong> plugin</p>
+<p>This plugins applies the java plugin automatically which means by applying it we will have everything the java plugin has.</p>
+<p>Add <strong>api</strong> dependency configuration which will talk more about it later.</p>
+</li>
+<li>
+<p><strong><code>application</code></strong> plugin</p>
+<p>This plugins applies the java plugin automatically which means by applying it we will have everything the java plugin has.</p>
+<p>Adds build configuration to determine <em>main</em> class</p>
+<p>Adds <strong>run</strong> and <strong>package</strong> tasks to run the application (via the main class provided) and package the app respectively</p>
+</li>
+</ul>
+<h3 id="kotlin-plugin"><strong>kotlin</strong> plugin<a class="headerlink" href="#kotlin-plugin" title="Permanent link">#</a></h3>
+<p>It is <code>org.jetbrains.kotlin.jvm</code> plugin which is maintained by jetbrains.</p>
+<p>This plugins applies the java plugin automatically which means by applying it we will have everything the java plugin has.</p>
+<p>Adds sourceSets for <strong>kotlin</strong> code which can be used along side normal java sourceSets:</p>
+<ul>
+<li><code>src/main/kotlin</code></li>
+<li><code>src/test/kotlin</code></li>
+</ul>
+<div class="admonition warning">
+<p>Never put <code>java</code> files inside kotlin sourceSets. they will not be compiled. put them in the appropriate java sourceSet (<code>src/main/java</code> or <code>src/test/java</code>)</p>
+</div>
+<p>Adds <strong>CompileKotlin</strong> task to compile kotlin code.</p>
+<p><code>java-library</code> and <code>application</code> plugins can be applied along side this plugin to add more functionality.</p>
+<h3 id="groovy-plugin"><strong>groovy</strong> plugin<a class="headerlink" href="#groovy-plugin" title="Permanent link">#</a></h3>
+<p>This plugin extends the <code>java</code> plugin.</p>
+<p>Adds sourceSets for <strong>kotlin</strong> code which can be used along side normal java sourceSets:</p>
+<ul>
+<li><code>src/main/groovy</code></li>
+<li><code>src/test/groovy</code></li>
+</ul>
+<p>Adds <strong>CompileGroovy</strong> task to compile groovy code.</p>
+<p>Can be used along side java.</p>
+<p><code>java-library</code> and <code>application</code> plugins can be applied along side this plugin to add more functionality.</p>
+<h3 id="scala-plugin"><strong>scala</strong> plugin<a class="headerlink" href="#scala-plugin" title="Permanent link">#</a></h3>
+<p>This plugin extends the <code>java</code> plugin.</p>
+<p>Adds sourceSets for <strong>kotlin</strong> code which can be used along side normal java sourceSets:</p>
+<ul>
+<li><code>src/main/scala</code></li>
+<li><code>src/test/scala</code></li>
+</ul>
+<p>Adds <strong>CompileScala</strong> task to compile scala code.</p>
+<p>Can be used along side java.</p>
+<p><code>java-library</code> and <code>application</code> plugins can be applied along side this plugin to add more functionality.</p>
+<h2 id="source-organization">Source Organization<a class="headerlink" href="#source-organization" title="Permanent link">#</a></h2>
+<p><code>SourceSets</code> are configurations which are provided by the plugins in order to <strong>logically group</strong> sources. Basically they tell gradle where our source codes are.</p>
+<p>By default there are 2 <strong>sourceSets</strong>: <code>main</code> and <code>test</code>. It is possible to change the default location of source files (check <a href="https://kotlinlang.org/docs/gradle-configure-project.html#kotlin-and-java-sources-for-javascript">here</a>) but it is recommended to use the default ones.</p>
+<h3 id="how-are-sourcesets-useful">How are sourceSets useful?<a class="headerlink" href="#how-are-sourcesets-useful" title="Permanent link">#</a></h3>
+<p>In order to answer these question we check these two scenarios:</p>
+<ul>
+<li>Handle Generated Source Codes</li>
+<li>Running Expensive Tests</li>
+</ul>
+<h4 id="handling-generated-source-codes">Handling Generated Source Codes<a class="headerlink" href="#handling-generated-source-codes" title="Permanent link">#</a></h4>
+<p>Some tasks in our projects generate code dynamically (like annotation processors). It is recommended not to push these codes in source control and put them under <code>build/generated</code>. </p>
+<details class="info">
+<summary>Why shouldn't we add generated sources to source control?</summary>
+<ul>
+<li>
+<p><strong>Redundency &amp; Size</strong>: Generally size of generated sources is large and is easily reproducable. This means the Repository size is increased unnecessarily.</p>
+</li>
+<li>
+<p><strong>Merge conflicts</strong>: These files, especially if they change frequently, can lead to an increased number of merge conflicts in version control systems. This can happen when different developers generate slightly different versions of these files on their local machines.</p>
+</li>
+<li>
+<p><strong>Reproducibility</strong>: If generated files are included in version control, there's a risk that builds on different machines might rely on slightly different versions of these files, leading to inconsistencies.</p>
+</li>
+<li>
+<p><strong>Maintainabiliy</strong>: By not tracking these files in version control, you ensure that your repository only contains the essential source files that developers need to work with. This makes the repository cleaner and more maintainable.</p>
+</li>
+</ul>
+</details>
+<p>For This Reason we put the generated source under <code>build/generated/sources</code> directoru and add it as a sourceSet to gradle so it automatically looks in those folder for sources.</p>
+<p>In order to add a location to a sourceSet we do the following:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sourceSets</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">java</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">srcDir</span><span class="p">(</span><span class="s">&quot;&lt;path&gt;&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This path is static and if the task which generates the code, changes it then we must change it here as well (also we need to remember to execute that task before the compile, so sources are generated) but we can use <strong>inferred task dependency</strong>  to avoid that: </p>
+<div class="highlight"><pre><span></span><code><span class="n">sourceSets</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">java</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">srcDir</span><span class="p">(</span><span class="n">tasks</span><span class="p">.</span><span class="na">named</span><span class="p">(</span><span class="s">&quot;someTask&quot;</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now by doing this, we automatically use the correct location if it is changed, also <strong>someTask</strong> task is automatically executed before the compile task so source generation is done.</p>
+<p>In the following example we copy sources from a folder to the build folder (we assume these sources are generated with ai):</p>
+<div class="highlight"><pre><span></span><code><span class="n">tasks</span><span class="p">.</span><span class="na">register</span><span class="o">&lt;</span><span class="n">Copy</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;generateMlCode&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">from</span><span class="p">(</span><span class="n">rootProject</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">projectDirectory</span><span class="p">.</span><span class="na">dir</span><span class="p">(</span><span class="s">&quot;mlCodeGenTemplate&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="n">into</span><span class="p">(</span><span class="n">layout</span><span class="p">.</span><span class="na">buildDirectory</span><span class="p">.</span><span class="na">dir</span><span class="p">(</span><span class="s">&quot;generated/sources/mlCode&quot;</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="n">sourceSets</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">java</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">srcDir</span><span class="p">(</span><span class="n">tasks</span><span class="p">.</span><span class="na">named</span><span class="p">(</span><span class="s">&quot;generateMlCode&quot;</span><span class="p">))</span>
+<span class="w">            </span><span class="c1">// Note: DO NOT do the following</span>
+<span class="w">            </span><span class="n">srcDir</span><span class="p">(</span><span class="n">layout</span><span class="p">.</span><span class="na">buildDirectory</span><span class="p">.</span><span class="na">dir</span><span class="p">(</span><span class="s">&quot;generated/sources/mlCode&quot;</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="running-expensive-tests">Running Expensive Tests<a class="headerlink" href="#running-expensive-tests" title="Permanent link">#</a></h4>
+<p>Unit tests must execute fast, becuase developers run them frequently after small changes to verify the tests. Now if running these tests takes alot of time, developers might not run them as often. (Slow tests are database tests or tests with network requests, etc)</p>
+<figure>
+<p><img alt="Expensive tests Run all Tests" src="../assets/expensive-tests-1.png" width="300" /></p>
+</figure>
+<p>By defining a separate <strong>sourceSet</strong> for expensive tests allows us to run fast tests separatelt from them and run expensive tests when needed.</p>
+<figure>
+<p><img alt="Expensive tests Tests Separately" src="../assets/expensive-tests-2.png" width="300" /></p>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Junit Tags</p>
+<p>If junit is the test framework, we can use test <em>tags</em> to run parts of tests not all of them. but not all test framework provide this feature.</p>
+</div>
+<p>Using separate sourceSet has another benefit: Expensive tests require different dependencies which we can only add to their sourceSet alone and fast tests do not have those dependencies</p>
+<div class="admonition note">
+<p class="admonition-title">Android Framework tests</p>
+<p>In android for tests related to android framework which needs an android emulator to execute, they have defined a separate sourceSets called <strong>androidTest</strong>.</p>
+</div>
+<h3 id="soucesets-more-than-just-sources">SouceSets: More than Just Sources<a class="headerlink" href="#soucesets-more-than-just-sources" title="Permanent link">#</a></h3>
+<p>Beside Source Locations, there are more information within a sourceSet:</p>
+<ul>
+<li>Dependencies</li>
+<li>Classpath for compilation and runtime</li>
+<li>Input classes: Where are our sources?</li>
+<li>Impl configuration: What configuration to use to add a dependency to it.</li>
+<li>Output classes: Where are java class bytecodes</li>
+</ul>
+<p>Using the following code, you can findout about these informations:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">java.nio.file.Paths</span>
+
+<span class="n">tasks</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">&quot;sourceSetsInfo&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">doLast</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">fun</span><span class="w"> </span><span class="nf">isInGradleDirectory</span><span class="p">(</span><span class="n">file</span><span class="p">:</span><span class="w"> </span><span class="n">File</span><span class="p">):</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nv">parent</span><span class="p">:</span><span class="w"> </span><span class="n">File? </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="na">parentFile</span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">parent</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;.gradle&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="na">parentFile</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">projectPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layout</span><span class="p">.</span><span class="na">projectDirectory</span><span class="p">.</span><span class="na">asFile</span><span class="p">.</span><span class="na">toPath</span><span class="p">()</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">gradleHomePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gradle</span><span class="p">.</span><span class="na">gradleUserHomeDir</span><span class="p">.</span><span class="na">toPath</span><span class="p">()</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cachePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">gradleHomePath</span><span class="p">.</span><span class="na">toString</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;caches/modules-2/files-2.1/&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">sourceSets</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">sourceSet</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">            </span><span class="n">println</span><span class="p">()</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">${</span><span class="n">sourceSet</span><span class="p">.</span><span class="na">name</span><span class="si">}</span><span class="s">]&quot;</span><span class="p">)</span>
+
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\tsrcDirs:&quot;</span><span class="p">)</span>
+<span class="hll"><span class="w">            </span><span class="n">sourceSet</span><span class="p">.</span><span class="na">allSource</span><span class="p">.</span><span class="na">srcDirs</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">-&gt;</span>
+</span><span class="w">                </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\t\t</span><span class="si">${</span><span class="n">projectPath</span><span class="p">.</span><span class="na">relativize</span><span class="p">(</span><span class="n">dir</span><span class="p">.</span><span class="na">toPath</span><span class="p">())</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\tsrcDirs:&quot;</span><span class="p">)</span>
+<span class="hll"><span class="w">            </span><span class="n">sourceSet</span><span class="p">.</span><span class="na">output</span><span class="p">.</span><span class="na">classesDirs</span><span class="p">.</span><span class="na">files</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">-&gt;</span>
+</span><span class="w">                </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\t\t</span><span class="si">${</span><span class="n">projectPath</span><span class="p">.</span><span class="na">relativize</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="na">toPath</span><span class="p">())</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\timpl dependency configuration:&quot;</span><span class="p">)</span>
+<span class="hll"><span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\t\t</span><span class="si">${</span><span class="n">sourceSet</span><span class="p">.</span><span class="na">implementationConfigurationName</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\tCompile Task:&quot;</span><span class="p">)</span>
+<span class="hll"><span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\t\t</span><span class="si">${</span><span class="n">sourceSet</span><span class="p">.</span><span class="na">compileJavaTaskName</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\tCompile Classpath:&quot;</span><span class="p">)</span>
+<span class="hll"><span class="w">            </span><span class="n">sourceSet</span><span class="p">.</span><span class="na">compileClasspath</span><span class="p">.</span><span class="na">files</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">-&gt;</span>
+</span><span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">isInGradleDirectory</span><span class="p">(</span><span class="n">file</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\t\t</span><span class="si">${</span><span class="n">cachePath</span><span class="p">.</span><span class="na">relativize</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="na">toPath</span><span class="p">())</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\t\t</span><span class="si">${</span><span class="n">projectPath</span><span class="p">.</span><span class="na">relativize</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="na">toPath</span><span class="p">())</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\tRuntime Classpath:&quot;</span><span class="p">)</span>
+<span class="hll"><span class="w">            </span><span class="n">sourceSet</span><span class="p">.</span><span class="na">runtimeClasspath</span><span class="p">.</span><span class="na">files</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">-&gt;</span>
+</span><span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">isInGradleDirectory</span><span class="p">(</span><span class="n">file</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\t\t</span><span class="si">${</span><span class="n">cachePath</span><span class="p">.</span><span class="na">relativize</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="na">toPath</span><span class="p">())</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\t\t</span><span class="si">${</span><span class="n">projectPath</span><span class="p">.</span><span class="na">relativize</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="na">toPath</span><span class="p">())</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p>Note: Android SourceSets have slightly different API</p>
+</div>
+<h3 id="define-additional-sourcesets">Define Additional SourceSets<a class="headerlink" href="#define-additional-sourcesets" title="Permanent link">#</a></h3>
+<p>We define addional sourceSets to manage code that is logically independent (e.g test types).
+- Since test frameworks may have different dependencies and classpaths, we define addtional sourceSets for them to executes different test types separately.</p>
+<p>Creating a sourceSet is easy as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sourceSets</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;srcSetName&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>And after this, if we run <code>sourceSetsInfo</code> tasks, then we will see this sourceSet in the list as well, and we can use it's sepecific dependency configuration to add a dependency to it.</p>
+<p>Now for example let's consider a extra sourceSet which has a main method, let's define a task similir to <code>run</code> to run this sourceSet:</p>
+<div class="highlight"><span class="filename">./src/extra/Extra.java</span><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.joda.time.LocalTime</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Extra</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Running Extra: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">LocalTime</span><span class="p">.</span><span class="na">now</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="annotate">
+<div class="highlight"><span class="filename">build.gradle.kts</span><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">extraSrcSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sourceSets</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;extra&quot;</span><span class="p">)</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;extraImplementation&quot;</span><span class="p">(</span><span class="s">&quot;joda-time:joda-time:2.11.1&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1">//(1)!</span>
+<span class="p">}</span>
+<span class="n">tasks</span><span class="p">.</span><span class="na">register</span><span class="o">&lt;</span><span class="n">JavaExec</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;runExtra&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//(2)!</span>
+<span class="w">    </span><span class="n">classpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extraSrcSet</span><span class="p">.</span><span class="na">output</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">extraSrcSet</span><span class="p">.</span><span class="na">runtimeClasspath</span><span class="w"> </span><span class="c1">//(3)!</span>
+<span class="w">    </span><span class="n">mainClass</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;Extra&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<ol>
+<li><strong>extraImplementation</strong> is the output of <code>extraSrcSet.implementationConfigurationName</code></li>
+<li><strong>JavaExec</strong> is a predefined task type which requires classpath and mainclass to be set. For more task types check <a href="https://docs.gradle.org/current/dsl/#N104D7">here</a>.</li>
+<li>For <em>classpath</em> two values are concatenated: <ul>
+<li>sourceSet <strong>output</strong> so we have access to .class files inside extra package (as well as declare an inferred dependency on Compile task of this sourceSet, so before running this task, extra files are compiled first)</li>
+<li><strong>runtimeClasspath</strong> because we need the declared dependencies to run the jar file. </li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>
